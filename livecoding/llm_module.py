@@ -21,7 +21,7 @@ Retorne apenas o JSON estruturado, sem texto adicional.
 """
 
 def extract_info(text):
-    client = genai.Client(api_key="AIzaSyAU0Xp91NhRJ_zqdZlX4n130xoLjILRd9g")
+    client = genai.Client(api_key="SUA_CHAVE_AQUI")
     config = types.GenerateContentConfig(
         system_instruction=system_prompt,
         response_mime_type="application/json"

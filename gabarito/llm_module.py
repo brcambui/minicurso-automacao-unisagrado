@@ -37,7 +37,7 @@ Retorne apenas o JSON estruturado, sem texto adicional.
 
 # Recomenda-se carregar a chave de uma variável de ambiente (GEMINI_API_KEY)
 # Caso contrário, você pode inicializar com genai.Client(api_key="SUA_CHAVE_AQUI")
-client = genai.Client(api_key="AIzaSyAU0Xp91NhRJ_zqdZlX4n130xoLjILRd9g")
+client = genai.Client(api_key="SUA_CHAVE_AQUI")
 
 # --- 3. Função Principal: analyze_invoice ---
 
