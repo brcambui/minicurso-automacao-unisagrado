@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro de Pagamentos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
+        <h1 class="text-3xl font-extrabold text-blue-600 mb-6 border-b pb-2">Registro de Fatura</h1>
+        <p class="text-sm text-gray-500 mb-6">Este formulário simula o sistema empresarial de pagamento.</p>
+
+        <form id="paymentForm" class="space-y-6">
+            <div>
+                <label for="supplierName" class="block text-sm font-medium text-gray-700 mb-1">Nome do Fornecedor:</label>
+                <input type="text" id="supplierName" name="supplierName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" required>
+            </div>
+
+            <div>
+                <label for="invoiceNumber" class="block text-sm font-medium text-gray-700 mb-1">Número da Invoice:</label>
+                <input type="text" id="invoiceNumber" name="invoiceNumber" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" required>
+            </div>
+
+            <div>
+                <label for="totalValue" class="block text-sm font-medium text-gray-700 mb-1">Valor Total (R$):</label>
+                <input type="text" id="totalValue" name="totalValue" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" required>
+            </div>
+
+            <button type="submit" id="submitButton" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">
+                Registrar Pagamento
+            </button>
+        </form>
+
+        <div id="statusMessage" class="mt-6 p-4 rounded-lg hidden"></div>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const messageDiv = document.getElementById('statusMessage');
+
+            // Coleta os dados (o RPA deve simular este preenchimento)
+            const data = {
+                fornecedor: form.supplierName.value,
+                invoice: form.invoiceNumber.value,
+                valor: form.totalValue.value
+            };
+
+            // Simula o processamento
+            messageDiv.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+            messageDiv.classList.add('bg-green-100', 'text-green-800');
+            messageDiv.innerHTML = `
+                <strong class="font-bold">SUCESSO!</strong>
+                <p>Pagamento registrado pelo sistema.</p>
+                <p class="mt-2 text-sm">Dados Recebidos:</p>
+                <ul class="list-disc list-inside ml-4 text-xs">
+                    <li>Fornecedor: ${data.fornecedor}</li>
+                    <li>Invoice: ${data.invoice}</li>
+                    <li>Valor: ${data.valor}</li>
+                </ul>
+            `;
+            console.log('Dados submetidos:', data);
+        });
+    </script>
+</body>
+</html>
